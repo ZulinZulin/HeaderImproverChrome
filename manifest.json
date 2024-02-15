@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Улучшатель Заголовков",
+    "version": "0.0.0.1",
+    "description": "Это расширение улучшает заголовки которые вы видите на веб-сайтах во всемирной сети Интернет",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs",
+        "storage"
+    ],
+    "icons": {
+        "16": "images/icon_16.png",
+        "32": "images/icon_32.png",
+        "48": "images/icon_48.png",
+        "128": "images/icon_128.png"
+    },
+    "action": {
+        "default_popup": "main.html"
+    },
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "exclude_matches": [
+                "https://www.youtube.com/"
+            ]
+        }
+    ]
+}

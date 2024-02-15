@@ -1,0 +1,284 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+body {
+
+    width: 16rem;
+    height: 22rem;
+    text-align: center;
+
+}
+
+.main-header {
+    font-family: fantasy;
+    -webkit-text-stroke: #272427;
+    -webkit-text-stroke-width: 2px;
+    text-shadow: 1px 1px 4px red, 0 0 1em blue, 0 0 0.2em blue;
+    color: azure;
+    font-style: italic;
+    font-size: 2em;
+    margin-bottom: 5%;
+    padding-top: 6%;
+
+}
+
+label {
+    display: block;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #00ffff;
+    text-shadow: 2px 2px 4px #ff00ff;
+    margin-bottom: 10px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70%;
+    height: 2em;
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2em;
+    height: 2em;
+    background-color: aqua;
+    box-shadow: 3px 1px 2px rgb(56, 4, 56);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 2em;
+    height: 2em;
+    background-color: aqua;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 12px 9px teal;
+    cursor: pointer;
+}
+
+.UImain {
+    width: 16rem;
+    height: 22rem;
+    background: rgb(106, 0, 244);
+    background: linear-gradient(0deg, rgba(106, 0, 244, 1) 0%, rgba(26, 129, 171, 1) 32%, rgba(35, 153, 218, 1) 65%, rgba(114, 9, 183, 1) 100%);
+}
+
+span,
+button {
+    text-align: center;
+    align-items: center;
+}
+
+
+
+button {
+    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+    width: 10rem;
+    height: 4rem;
+    border-radius: 20px;
+    box-shadow: 6px 2px 2px #332a32;
+    transition: .4s ease;
+}
+
+button:hover {
+    background-color: #c42785;
+    box-shadow: 9px 5px 5px #382d37;
+    transition: .4s ease;
+
+}
+
+button:active {
+    background-color: #7a375f;
+    box-shadow: 9px 5px 5px #332a32;
+    transition: .1s ease;
+}
+
+button {
+    font-family: fantasy;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 1.5em;
+    color: rgb(222, 145, 238);
+    -webkit-text-stroke: #272427;
+    text-shadow: 2px 2px 1px rgb(66, 61, 62);
+
+
+
+}
+
+#slider {
+    margin-bottom: 1em;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #ff00ff;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]::before {
+    content: 'X';
+    position: absolute;
+    font-size: 18px;
+    /* Adjust font size as needed */
+    font-weight: 800;
+    color: #00ffff;
+    /* Color of the X */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
