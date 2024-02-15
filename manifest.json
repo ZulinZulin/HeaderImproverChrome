@@ -5,8 +5,8 @@
     "description": "Это расширение улучшает заголовки которые вы видите на веб-сайтах во всемирной сети Интернет",
     "permissions": [
         "activeTab",
-        "scripting",
-        "tabs",
+
+
         "storage"
     ],
     "icons": {
@@ -27,7 +27,8 @@
                 "scripts/content.js"
             ],
             "matches": [
-                "<all_urls>"
+                "http://*/*",
+                "https://*/*"
             ],
             "exclude_matches": [
                 "https://www.youtube.com/"
