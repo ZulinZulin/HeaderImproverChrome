@@ -1,83 +1,9 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,
 video {
     margin: 0;
     padding: 0;
@@ -87,17 +13,8 @@ video {
     vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,
 section {
     display: block;
 }
@@ -130,19 +47,90 @@ table {
 }
 
 
+body{
+    background-color:rgba(106, 0, 244, 1);
+}
 
-body {
+.UImain {
+    width: 15.3rem;
+    height: 24rem;
+    background: rgb(106, 0, 244);
+    background: linear-gradient(0deg, rgba(106, 0, 244, 1) 0%, rgba(26, 129, 171, 1) 32%, rgba(35, 153, 218, 1) 65%, rgba(114, 9, 183, 1) 100%);
+}
 
-    width: 16rem;
-    height: 22rem;
+
+
+.UIcenter {
     text-align: center;
+}
+
+.cEnableButton {
+    display: none;
+}
+
+h6 {
+    text-align: center;
+}
+
+.onoff {
+    text-align: center;
+}
+
+.tumbLabl{
+    display: inline;
+    font-family: 'Comic Sans MS', sans-serif;
+
+    font-size: 16px;
+    color: #00ffff;
+    text-shadow: 2px 2px 4px #ff00ff;
+
+    vertical-align: 50%; 
+}
+
+
+.cEnableButtonLabel {
+
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: #31bdcf;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-left: 5px;
+    margin-right: 5px;
 
 }
 
+
+.cEnableButtonLabel::before {
+    content: '';
+    box-shadow: 1px 1px 1px rgb(56, 4, 56);
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: #ee65f3;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    left: 5px;
+
+
+}
+
+
+.cEnableButton:checked+.cEnableButtonLabel::before {
+    left: calc(100% - 25px);
+}
+
+
 .main-header {
     font-family: fantasy;
-    -webkit-text-stroke: #272427;
-    -webkit-text-stroke-width: 2px;
+
+
     text-shadow: 1px 1px 4px red, 0 0 1em blue, 0 0 0.2em blue;
     color: azure;
     font-style: italic;
@@ -193,23 +181,9 @@ input[type="range"]::-moz-range-thumb {
     background-color: aqua;
     border: none;
     border-radius: 50%;
-    box-shadow: 12px 9px teal;
+    box-shadow: 5px 5px teal;
     cursor: pointer;
 }
-
-.UImain {
-    width: 16rem;
-    height: 22rem;
-    background: rgb(106, 0, 244);
-    background: linear-gradient(0deg, rgba(106, 0, 244, 1) 0%, rgba(26, 129, 171, 1) 32%, rgba(35, 153, 218, 1) 65%, rgba(114, 9, 183, 1) 100%);
-}
-
-span,
-button {
-    text-align: center;
-    align-items: center;
-}
-
 
 
 button {
@@ -252,7 +226,7 @@ button {
     margin-bottom: 1em;
 }
 
-input[type="checkbox"] {
+.cRandomMode {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -265,7 +239,7 @@ input[type="checkbox"] {
     position: relative;
 }
 
-input[type="checkbox"]::before {
+.cRandomMode::before {
     content: 'X';
     position: absolute;
     font-size: 18px;
@@ -279,6 +253,6 @@ input[type="checkbox"]::before {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked::before {
+.cRandomMode:checked::before {
     opacity: 1;
 }

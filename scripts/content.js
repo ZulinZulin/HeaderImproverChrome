@@ -1,11 +1,10 @@
 const wordsToInsert = [' ИЗ ЖОПЫ', ' ГОВНА', ' ВОТ ПИЗДЕЦ', ' НО ХУЙ ТАМ', ' НУ АХУЕТЬ ТЕПЕРЬ', ', НО КОГО ЕБЁТ?', ' ДА И ХУЙ С НИМ', ' НУ И ЗАЕБИСЬ'];
-let headerToChange = document.querySelectorAll('h1, h2, h3, h1 > span, .icon icon--tick_redaction');
+let headerToChange = document.querySelectorAll('h1, h2, h3, h1 > span');
 
 function getRandomNumber() {
-    return Math.floor(Math.random() * 8); // Math.random() generates a random number between 0 and 1 (exclusive)
-    // Multiplying by 6 gives a range from 0 to 5.999...
-    // Math.floor() rounds down to the nearest integer
+  return Math.floor(Math.random() * 8);
 }
+
 
 function improveHeader(header) {
     if (!randomON) {
@@ -17,36 +16,47 @@ function improveHeader(header) {
 
 let dialPosition = 10;
 let randomON = true;
-// Retrieve the slider value from storage when the content script loads
-chrome.storage.sync.get(['sliderValue', 'randomModeValue'], function (data) {
+let enableM = true;
+
+// Когда скрипт грузится (когда таба грузится) подгружаем из памяти значения юая, назначаем их переменным и улучшаем заголовки
+chrome.storage.sync.get(['sliderValue', 'randomModeValue', 'enableBtnValue'], function (data) {
+    console.log(`now LOADING from storage. we got: ${data.sliderValue}, ${data.randomModeValue}, ${data.enableBtnValue}`);
     if (data.sliderValue !== undefined) {
-        dialPosition = Number(data.sliderValue);
+      dialPosition = Number(data.sliderValue);
     }
-    if (data.randomModeValue !== undefined){
-        randomON = data.randomModeValue;
+    if (data.randomModeValue !== undefined) {
+      randomON = data.randomModeValue;
     }
-    if (dialPosition !== 10 && dialPosition !== undefined) {
-        headerToChange.forEach(element => {
-            improveHeader(element);
-        });
+    if (data.enableBtnValue !== undefined) {
+      enableM = data.enableBtnValue;
     }
-});
+    if (dialPosition !== 10 && dialPosition !== undefined && enableM == true) {
+      headerToChange.forEach(element => {
+        improveHeader(element);
+      });
+    } else if (enableM == false) {
+      console.log('Enable is OFF');
+    }
+  });
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    if(message.clickValue !== undefined){
-        console.log('chu say???')
-    }
-    if (message.clickValue !== undefined && message.randomModeValue !== undefined) {
+    
+    if (message.clickValue !== undefined) {
+        console.log('chu say???');
+      }
+      if (message.clickValue !== undefined && message.randomModeValue !== undefined) {
         console.log('tick is: ' + message.randomModeValue + 'its type is ' + typeof message.randomModeValue);
         randomON = message.randomModeValue;
         console.log('randomON = ' + randomON);
         dialPosition = Number(message.sliderValue);
-        if (dialPosition !== 10) {
-            headerToChange.forEach(element => {
-                improveHeader(element);
-            });
-        } else {
-            console.log('Cant improve:(');
-        }
+    
+    //эта хуйня раньше улучшала заголовки при каждом нажатии кнопки
+    // if (dialPosition !== 10 && enableM == true) {
+    //   headerToChange.forEach(element => {
+    //     improveHeader(element);
+    //   });
+    // } else {
+    //   console.log('Cant improve:(');
+    // }
     }
 });

@@ -7,20 +7,41 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <div class="UImain">
         <h6 class="main-header">Улучшатор Заголовков</h6>
-        <div>
-            <br>
-            <label for="nslider">ВЫБИРАТОР</label>
-            <input type="range" id="slider" name="nslider" min="0" max="7">
+        <div class="onoff">
+            <span class="tumbLabl">ВЫКЛ</span>
+            <span>
+                <input type="checkbox" class="cEnableButton" name="nEnableButton" id="enableButton">
+                <label for="enableButton" class="cEnableButtonLabel"></label>
+            </span>
+            <span class="tumbLabl">ВКЛ</span>
         </div>
-        <label for="nRandomMode">RANDOM MODE</label>
-        <input type="checkbox" name="nRandomMode" id="randomMode">
-        <div>
-            <button id="saveButton">Сохранятор</button>
+
+
+        <div class="UIcenter">
+            <div>
+
+
+
+                <br>
+                <div>
+                    <label for="nslider">ВЫБИРАТОР</label>
+                    <input type="range" id="slider" name="nslider" min="0" max="7">
+                </div>
+            </div>
+            <label for="nRandomMode">RANDOM MODE</label>
+            <input type="checkbox" name="nRandomMode" id="randomMode" class="cRandomMode">
+
+
+            <div>
+                <button id="saveButton">Сохранятор</button>
+            </div>
         </div>
     </div>
     <script src="scripts/main.js"></script>
 </body>
+
 </html>
