@@ -1,10 +1,24 @@
-const wordsToInsert = [' ИЗ ЖОПЫ', ' ГОВНА', ' ВОТ ПИЗДЕЦ', ' НО ХУЙ ТАМ', ' НУ АХУЕТЬ ТЕПЕРЬ', ', НО КОГО ЕБЁТ?', ' ДА И ХУЙ С НИМ', ' НУ И ЗАЕБИСЬ'];
+const wordsToInsert = [
+  ' ИЗ ЖОПЫ',
+  ' ГОВНА',
+  ' ВОТ ПИЗДЕЦ',
+  ' НО ХУЙ ТАМ',
+  ' НУ АХУЕТЬ ТЕПЕРЬ',
+  ', НО КОГО ЕБЁТ?',
+  ' ДА И ХУЙ С НИМ',
+  ' НУ И ЗАЕБИСЬ',
+  ' И ХУЙ ТАМ ПЛАВАЛ',
+  ', НО ВСЕМ, КОНЕЧНО, ПОХУЙ',
+  ', ПРОЕБАВ ВСЕ ПОЛИМЕРЫ',
+  ' ШАТАЛ ТВОЙ РОТ',
+  ' ПРОСТЫМ И ПОНЯТНЫМ БЛЯТЬ СУКА ХУЙ ПИЗДА АНАЛ ГОВНО ЕБАТЬ МАТЬ ЕГО ЯЗЫКОМ'
+];
+
 let headerToChange = document.querySelectorAll('h1, h2, h3, h1 > span');
 
 function getRandomNumber() {
-  return Math.floor(Math.random() * 8);
+  return Math.floor(Math.random() * wordsToInsert.length);
 }
-
 
 function improveHeader(header) {
     if (!randomON) {
@@ -40,7 +54,7 @@ chrome.storage.sync.get(['sliderValue', 'randomModeValue', 'enableBtnValue'], fu
   });
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    
+
     if (message.clickValue !== undefined) {
         console.log('chu say???');
       }
@@ -49,7 +63,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         randomON = message.randomModeValue;
         console.log('randomON = ' + randomON);
         dialPosition = Number(message.sliderValue);
-    
+
     //эта хуйня раньше улучшала заголовки при каждом нажатии кнопки
     // if (dialPosition !== 10 && enableM == true) {
     //   headerToChange.forEach(element => {
